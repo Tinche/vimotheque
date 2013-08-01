@@ -1,0 +1,14 @@
+---
+- name: Create Pathogen directories.
+  file: dest=~/.vim/{{ item }} state=directory
+  with_items:
+    - autoload
+    - bundle
+
+- name: Install Pathogen.
+  get_url: url=https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+           dest=~/.vim/autoload/pathogen.vim
+
+- include: ../snippets/copy-snippet.yml
+  vars:
+    snippet: snippets/00-pathogen-infect.vim

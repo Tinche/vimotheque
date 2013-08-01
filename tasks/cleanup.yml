@@ -1,0 +1,12 @@
+---
+- name: Clean up .vimrc.
+  file: path=~/.vimrc state=absent
+
+- name: Clean up the Vim directory.
+  file: path=~/.vim state=absent
+
+- name: Set up Vim directories.
+  file: path=~/.vim/{{ item }} state=directory
+  with_items:
+    - plugin
+    - "{{ vtq_snippet_dir }}"

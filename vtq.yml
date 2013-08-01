@@ -1,0 +1,20 @@
+---
+- hosts: all
+  gather_facts: false
+
+  vars_files:
+  - vars/vtq.yml
+
+  handlers:
+  - include: handlers/vimrc-snippet-generator.yml
+
+  tasks:
+  - include: tasks/cleanup.yml
+
+  - include: tasks/pathogen-tasks.yml
+
+  - include: tasks/pathogen-plugin-tasks.yml repo_url={{ item }}
+    with_items: pathogen_plugin_urls
+    when: pathogen_plugin_urls is defined
+
+- include: snippets/copy-snippets-pb.yml

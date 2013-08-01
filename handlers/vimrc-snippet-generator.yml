@@ -1,0 +1,6 @@
+---
+- name: vimrc snippets to vimrc
+  assemble: src=~/.vim/snippets dest=~/.vim/_genvimrc
+
+- name: vimrc snippets to vimrc
+  shell: cat ~/.vim/_genvimrc >> ~/.vimrc && rm ~/.vim/_genvimrc

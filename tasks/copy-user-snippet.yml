@@ -1,0 +1,7 @@
+---
+- name: Copy Vtq snippet.
+  copy: src={{ snippet }} dest=~/.vim/snippets/{{ item }}
+  with_lines:
+    - basename {{ snippet }}
+  notify: 
+    - vimrc snippets to vimrc

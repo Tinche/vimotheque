@@ -1,0 +1,5 @@
+#!/bin/bash
+VTQPATH=$( cd $(dirname $0)/.. ; pwd -P )
+PWD=`pwd`
+echo $VTQPATH
+ansible-playbook -i localhost, $1 --extra-vars="vtq=$VTQPATH local=$PWD" -k

@@ -1,0 +1,3 @@
+---
+- include: copy-snippet.yml snippet={{ item }}
+  with_items: snippets
