@@ -1,3 +1,15 @@
 Playbook composability?
+=======================
+Ideally, users should be able to define a general purpose playbook, and have
+more specific playbooks include the general purpose one. Also, users should be
+able to run vtq on several specific playbooks at once:
+
+vtq python.yml ruby.yml web.yml js.yml
+
+Explore what idempotency means in this context - when is a cleanup required?
+Always, when a user requests it, or use clever logic?
+
 Better wrapper script.
-Example playbooks.
+======================
+
+Example playbooks. - my-vtq-playbooks on github.
