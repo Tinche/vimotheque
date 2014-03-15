@@ -9,4 +9,3 @@
   file: path=~/.vim/{{ item }} state=directory
   with_items:
     - plugin
-    - "{{ vtq_snippet_dir }}"

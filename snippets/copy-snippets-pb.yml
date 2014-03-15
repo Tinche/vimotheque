@@ -1,9 +1,0 @@
----
-- hosts: all
-  gather_facts: false
-  vars_files:
-  - ../vars/vtq.yml
-  tasks:
-  - include: copy-snippet.yml snippet={{ item }}
-    with_items: vimrc_snippets
-    when: vimrc_snippets is defined

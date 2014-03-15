@@ -1,5 +1,4 @@
 ---
-- name: Check out {{ item }}.
-  git: repo={{ repo_url }} dest=~/.vim/bundle/{{ item }} depth=1
-  with_lines:
-    - basename {{ repo_url }}
+- name: 'Check out Pathogen plugins.'
+  git: repo={{ item }} dest=~/.vim/bundle/{{ item|basename }} depth=1
+  with_items: pathogen_plugin_urls

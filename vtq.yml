@@ -7,8 +7,8 @@
   tasks:
   - include: tasks/pathogen-tasks.yml
 
-  - include: tasks/pathogen-plugin-tasks.yml repo_url={{ item }}
-    with_items: pathogen_plugin_urls
+  - include: tasks/pathogen-plugin-tasks.yml
     when: pathogen_plugin_urls is defined
 
-- include: snippets/copy-snippets-pb.yml
+  - include: tasks/copy-snippets.yml
+    when: vimrc_snippets is defined

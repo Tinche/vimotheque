@@ -9,6 +9,7 @@
   get_url: url=https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
            dest=~/.vim/autoload/pathogen.vim
 
-- include: ../snippets/copy-snippet.yml
+- include: copy-snippets.yml
   vars:
-    snippet: snippets/00-pathogen-infect.vim
+    vimrc_snippets: 
+      - snippets/00-pathogen-infect.vim

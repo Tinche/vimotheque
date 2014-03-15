@@ -1,3 +1,14 @@
 ---
-- include: copy-snippet.yml snippet={{ item }}
-  with_items: snippets
+- name: Set up snippet directory.
+  file: path={{ vtq_snippet_dir }} state=directory
+
+- name: Copy vimrc snippet.
+  copy: src="{{ item }}" dest="{{ vtq_snippet_dir }}/{{ item|basename }}"
+  with_items: vimrc_snippets
+  register: snippet_copy_register
+
+- name: "Append snippets to vimrc."
+  shell: "ls -dtr1 {{ vtq_snippet_dir }}/* | xargs cat >> ~/.vimrc"
+
+- name: Clean up snippet directory.
+  file: path={{ vtq_snippet_dir }} state=absent
