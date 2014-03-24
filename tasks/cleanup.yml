@@ -6,6 +6,7 @@
   file: path=~/.vim state=absent
 
 - name: Set up Vim directories.
-  file: path=~/.vim/{{ item }} state=directory
+  file: path={{ item }} state=directory
   with_items:
-    - plugin
+    - ~/.vim/plugin
+    - "{{vtq_snippet_dir}}"
